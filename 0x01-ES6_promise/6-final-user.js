@@ -12,5 +12,5 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
       { status: 'fulfilled', value: userResult },
       { status: 'fulfilled', value: photoResult },
     ];
-  } catch (err) { return [err]; }
+  } catch (err) { return [{ status: 'fulfilled', value: err }]; }
 }
