@@ -8,7 +8,10 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
     result.push({ status: 'fulfilled', value: userPromise });
     await uploadPhoto(fileName);
   } catch (err) {
-    result.push({ status: 'rejected', value: err });
+    result.push({
+      status: 'rejected',
+      value: `${fileName} cannot be uploaded`,
+    });
   }
   return result;
 }
