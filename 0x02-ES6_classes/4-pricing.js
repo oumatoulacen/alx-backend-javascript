@@ -3,8 +3,8 @@ import Currency from './3-currency';
 
 export default class Pricing {
   constructor(amount, currency) {
-    this._amount = this._validateNumber(amount);
-    this._currency = this._validateCurrency(currency);
+    this._amount = this._validateNumber(amount, 'Number');
+    this._currency = this._validateCurrency(currency, 'Currency');
   }
 
   // returns the attributes
@@ -40,8 +40,8 @@ export default class Pricing {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  _validateCurrency(currency, curr) {
-    if (!(currency instanceof Currency)) { throw new TypeError(`${curr} must be of type Currency`); }
+  _validateCurrency(currency, propertyName) {
+    if (!(currency instanceof Currency)) { throw new TypeError(`${propertyName} must be of type Currency`); }
     return currency;
   }
 }
