@@ -7,6 +7,10 @@ export default class Pricing {
     this._currency = this._validateCurrency(currency, 'Currency');
   }
 
+  static convertPrice(amount, conversionRate) {
+    return amount * conversionRate;
+  }
+
   // returns the attributes
   displayFullPrice() {
     return `${this._amount} ${this._currency.name} (${this._currency.code})`;
