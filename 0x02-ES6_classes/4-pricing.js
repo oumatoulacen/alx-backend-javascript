@@ -27,16 +27,7 @@ export default class Pricing {
   }
 
   set currency(currency) {
-    this._currency = this._validateNumber(currency, 'Currency');
-  }
-
-  // Validation function for strings
-  // eslint-disable-next-line class-methods-use-this
-  _validateString(value, propertyName) {
-    if (typeof value !== 'string') {
-      throw new TypeError(`${propertyName} must be a string`);
-    }
-    return value;
+    this._currency = currency;
   }
 
   // Validation function for number
