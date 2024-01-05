@@ -6,7 +6,6 @@ export default class Building {
     }
   }
 
-  // Getter and setter for sqrf
   get sqrf() {
     return this._sqrf;
   }
@@ -14,5 +13,4 @@ export default class Building {
   set sqrf(sqrf) {
     this._sqrf = sqrf;
   }
-
 }
