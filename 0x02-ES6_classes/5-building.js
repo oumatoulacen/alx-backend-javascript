@@ -10,7 +10,7 @@ export default class Building {
     return this._sqrf;
   }
 
-  set sqrf(sqrf) {
-    this._sqrf = sqrf;
+  set sqrf(value) {
+    this._sqrf = value;
   }
 }
