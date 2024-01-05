@@ -1,6 +1,6 @@
 export default class Building {
   constructor(sqrf) {
-    this._sqrt = this._validateNumber(sqrf, 'Sqrf');
+    this._sqrt = sqrf;
     if (this.constructor !== Building && this.evacuationWarningMessage === undefined) {
       throw new Error('Class extending Building must override evacuationWarningMessage');
     }
@@ -12,15 +12,7 @@ export default class Building {
   }
 
   set sqrf(sqrf) {
-    this._sqrf = this._validateNumber(sqrf, 'Sqrf');
+    this._sqrf = sqrf;
   }
 
-  // Validation function for number
-  // eslint-disable-next-line class-methods-use-this
-  _validateNumber(value, propertyName) {
-    if (typeof value !== 'number') {
-      throw new TypeError(`${propertyName} must be a string`);
-    }
-    return value;
-  }
 }
