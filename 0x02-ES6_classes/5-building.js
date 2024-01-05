@@ -1,6 +1,6 @@
 export default class Building {
   constructor(sqrf) {
-    this._sqft = this._validateNumber(sqrf, 'Sqrf');
+    this._sqrt = this._validateNumber(sqrf, 'Sqrf');
   }
 
   // eslint-disable-next-line class-methods-use-this
