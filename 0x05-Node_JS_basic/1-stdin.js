@@ -1,14 +1,18 @@
 #!/usr/bin/node
+// This script reads and prints a user's name.
+const readline = require('readline');
 
-process.stdout.write('Welcome to Holberton School, what is your name?\n');
-
-process.stdin.setEncoding('utf8');
-
-process.stdin.on('data', (data) => {
-  const input = data.trim();
-  console.log('Your name is:', input);
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
 });
 
-process.stdin.on('end', () => {
+console.log('Welcome to Holberton School, what is your name?');
+
+rl.on('line', (input) => {
+  console.log(`Your name is: ${input}`);
+});
+
+rl.on('close', () => {
   console.log('This important software is now closing');
 });
