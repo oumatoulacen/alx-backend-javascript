@@ -2,6 +2,7 @@ const http = require('http');
 const fs = require('fs');
 
 const app = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
   if (req.url === '/') {
     res.write('Hello Holberton School!');
     res.end();
