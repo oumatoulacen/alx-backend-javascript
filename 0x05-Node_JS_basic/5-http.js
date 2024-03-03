@@ -1,7 +1,8 @@
 const http = require('http');
 const fs = require('fs');
 
-const app = http.createServer(async (req, res) => {
+
+const app = http.createServer((req, res) => {
   if (req.url === '/') {
     res.write('Hello Holberton School!');
     res.end();
@@ -22,9 +23,9 @@ const app = http.createServer(async (req, res) => {
       res.write('This is the list of our students\n');
       res.write(`Number of students: ${count}\n`);
 
-      for (const field in data.students) {
-        if (field && data.students[field]) {
-          res.write(`Number of students in ${field}: ${data.students[field].length}. List: ${data.students[field].join(', ')}\n`);
+      for (const field in fields) {
+        if (fields[field]) {
+          res.write(`Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}\n`);
         }
       }
       res.end();
