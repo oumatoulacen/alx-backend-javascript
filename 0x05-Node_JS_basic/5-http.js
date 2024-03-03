@@ -3,11 +3,11 @@ const fs = require('fs');
 
 const app = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.write('This is the list of our students\n');
   if (req.url === '/') {
     res.write('Hello Holberton School!');
     res.end();
   } else if (req.url === '/students') {
+    res.write('This is the list of our students\n');
     try {
       const data = fs.readFileSync(process.argv[2], 'utf8');
       const lines = data.split('\n').filter((line) => line.length > 0);
