@@ -10,7 +10,7 @@ const app = http.createServer((req, res) => {
     fs.readFile(database, 'utf8', (err, data) => {
       if (err) {
         res.writeHead(500, { 'Content-Type': 'text/plain' });
-        res.end('Internal Server Error');
+        res.end('This is the list of our students\nCannot load the database');
       } else {
         const students = data.split('\n').filter((line) => line !== '');
         students.shift();
