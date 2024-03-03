@@ -3,6 +3,7 @@ const fs = require('fs');
 
 const app = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.write('This is the list of our students\n');
   if (req.url === '/') {
     res.write('Hello Holberton School!');
     res.end();
@@ -20,7 +21,6 @@ const app = http.createServer((req, res) => {
         fields[student[3]].push(student[0]);
       });
 
-      res.write('This is the list of our students\n');
       res.write(`Number of students: ${count}\n`);
 
       for (const field in fields) {
