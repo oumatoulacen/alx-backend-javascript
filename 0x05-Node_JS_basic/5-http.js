@@ -1,5 +1,5 @@
 const http = require('http');
-const countStudents = require('./3-read_file_async');
+const fs = require('fs');
 
 const app = http.createServer(async (req, res) => {
   if (req.url === '/') {
@@ -7,9 +7,20 @@ const app = http.createServer(async (req, res) => {
     res.end();
   } else if (req.url === '/students') {
     try {
-      const data = await countStudents(process.argv[2]);
+      const data = fs.readFileSync(process.argv[2], 'utf8');
+      const lines = data.split('\n').filter((line) => line.length > 0);
+      lines.shift();
+      const count = lines.length;
+      const fields = {};
+
+      lines.forEach((line) => {
+        const student = line.split(',');
+        if (!fields[student[3]]) fields[student[3]] = [];
+        fields[student[3]].push(student[0]);
+      });
+
       res.write('This is the list of our students\n');
-      res.write(`Number of students: ${data.count}\n`);
+      res.write(`Number of students: ${count}\n`);
 
       for (const field in data.students) {
         if (field && data.students[field]) {
