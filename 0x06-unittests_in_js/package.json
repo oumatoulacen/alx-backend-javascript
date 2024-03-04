@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "0x06-unittests_in_js",
   "main": "0-calcul.js",
-  "type": "module",
   "scripts": {
     "test": "mocha *.test.js"
   },
@@ -12,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "sinon": "^17.0.1"
+  },
+  "dependencies": {
+    "mocha": "^10.3.0"
   }
 }
