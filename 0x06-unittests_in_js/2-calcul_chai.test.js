@@ -1,6 +1,6 @@
 const chai = require('chai');
-const calculateNumber = require('./1-calcul');
 const expect = chai.expect;
+const calculateNumber = require('./1-calcul');
 
 describe('calculateNumber', function() {
     describe('type SUM', function() {

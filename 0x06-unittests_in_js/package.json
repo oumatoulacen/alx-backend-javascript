@@ -9,11 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "chai": "^5.1.0",
-    "sinon": "^17.0.1"
-  },
   "dependencies": {
-    "mocha": "^10.3.0"
+    "chai": "^5.1.0",
+    "mocha": "^10.3.0",
+    "sinon": "^17.0.1"
   }
 }
