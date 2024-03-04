@@ -31,7 +31,7 @@ describe('sendPaymentRequestToApi', function() {
 
     it ('checking if numbers round with stubs', () => {
         const stub = sinon.stub(Utils, 'calculateNumber');
-        stub.returns(10);
+        stub.withArgs({type: "SUM", a: 1, b: 7}).returns(10);
         sendPaymentRequestToApi(1, 7);
         expect(stub.calledOnce).to.be.true;
         expect(stub.calledWith('SUM', 1, 7)).to.be.true;
