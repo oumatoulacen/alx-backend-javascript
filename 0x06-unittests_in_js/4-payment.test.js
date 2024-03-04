@@ -35,7 +35,6 @@ describe('sendPaymentRequestToApi', function() {
         sendPaymentRequestToApi(1, 7);
         expect(stub.calledOnce).to.be.true;
         expect(stub.calledWith('SUM', 1, 7)).to.be.true;
-        consoleSpy.calledWith('The total is: 10');
         stub.restore();
     });
 });
