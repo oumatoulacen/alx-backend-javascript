@@ -15,8 +15,8 @@ describe('sendPaymentRequestToApi', function() {
     });
   
     it('logs to the console the right messages', () => {
+      expect(consoleSpy.calledOnce).to.be.true;
       sendPaymentRequestToApi(100.6, 131.6)
-  
       expect(consoleSpy.calledWith('The total is: 233')).to.be.true;
     });
 });
