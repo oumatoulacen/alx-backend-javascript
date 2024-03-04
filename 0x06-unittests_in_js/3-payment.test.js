@@ -4,9 +4,27 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 
 describe('sendPaymentRequestToApi', function() {
-  it('should log the correct result', function() {
-    const spy = sinon.spy(console, 'log');
-    sendPaymentRequestToApi(100, 20);
-    expect(spy.calledWith('The total is: 120')).to.be.true;
-  });
+    let consoleSpy;
+
+    beforeEach(() => {
+      consoleSpy = sinon.spy(console, 'log');
+    });
+  
+    afterEach(() => {
+      consoleSpy.restore();
+    });
+  
+    it('logs to the console the right messages', () => {
+      sendPaymentRequestToApi(100, 131)
+      sendPaymentRequestToApi(100.3, 131.3)
+      sendPaymentRequestToApi(100.6, 131.3)
+      sendPaymentRequestToApi(100.3, 131.6)
+      sendPaymentRequestToApi(100.6, 131.6)
+  
+      expect(consoleSpy.calledWith('The total is: 231')).to.be.true;
+      expect(consoleSpy.calledWith('The total is: 231')).to.be.true;
+      expect(consoleSpy.calledWith('The total is: 232')).to.be.true;
+      expect(consoleSpy.calledWith('The total is: 232')).to.be.true;
+      expect(consoleSpy.calledWith('The total is: 233')).to.be.true;
+    });
 });
