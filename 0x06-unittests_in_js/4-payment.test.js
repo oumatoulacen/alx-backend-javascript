@@ -1,8 +1,7 @@
-const sendPaymentRequestToApi = require('./4-payment');
-const { expect } = require('chai');
-const Utils = require('./utils.js');
-
 const sinon = require('sinon');
+const { expect } = require('chai');
+const sendPaymentRequestToApi = require('./4-payment');
+const Utils = require('./utils');
 
 describe('sendPaymentRequestToApi', function() {
     let calculateNumberStub;
@@ -28,4 +27,3 @@ describe('sendPaymentRequestToApi', function() {
       expect(consoleLogSpy.calledOnceWithExactly('The total is: 10')).to.be.true;
     });
   });
-  
