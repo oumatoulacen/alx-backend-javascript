@@ -8,7 +8,7 @@ describe('sendPaymentRequestToApi', () => {
     it('should call the Utils.calculateNumber() method', () => {
         const spy = sinon.spy(console, 'log');
         const stub = sinon.stub(Utils, 'calculateNumber');
-        stub.withArgs('SUM', 1, 9).returns(10);
+        stub.returns(10);
         sendPaymentRequestToApi(1, 9);
         expect(stub.calledOnceWithExactly('SUM', 1, 9)).to.be.true;
         expect(spy.calledOnceWithExactly('The total is: 10')).to.be.true;
