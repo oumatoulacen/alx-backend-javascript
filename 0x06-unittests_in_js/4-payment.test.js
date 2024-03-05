@@ -1,4 +1,4 @@
-const sendPaymentRequestToApi = require('./3-payment');
+const sendPaymentRequestToApi = require('./4-payment');
 const { expect } = require('chai');
 const Utils = require('./utils.js');
 
