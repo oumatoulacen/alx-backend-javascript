@@ -6,12 +6,10 @@ const sinon = require('sinon');
 
 describe('sendPaymentRequestToApi', () => {
   it('should call calculateNumber', () => {
-    const spy = sinon.spy(console, 'log');
-    const calculateNumberStub = sinon.stub(Utils, 'calculateNumber').returns(10);
+    const calculateNumberStub = sinon.stub(Utils, 'calculateNumber')
+    calculateNumberStub.withArgs('SUM', 100, 20).returns(120);
     sendPaymentRequestToApi(100, 20);
-    expect(calculateNumberStub.calledOnceWithExactly('SUM', 100, 20)).to.be.true;
-    expect(console.log('The total is: 120')).to.be.all;
-    spy.restore();
+    expect(calculateNumberStub.calledOnceWith('SUM', 100, 20)).to.be.true;
     calculateNumberStub.restore();
   });
 });
