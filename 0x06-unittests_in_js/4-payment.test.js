@@ -28,3 +28,4 @@ describe('sendPaymentRequestToApi', function() {
       expect(consoleLogSpy.calledOnceWithExactly('The total is: 10')).to.be.true;
     });
   });
+  
