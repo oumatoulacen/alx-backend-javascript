@@ -5,14 +5,14 @@ const Utils = require('./utils.js');
 const sinon = require('sinon');
 
 describe('sendPaymentRequestToApi', () => {
-  const checkSoy = sinon.spy(console, 'log');
-  it('checking if numbers round with spies and stubs', () => {
-    sendPaymentRequestToApi(100, 20);
-    const stubBoy = sinon.stub(Utils, 'calculateNumber');
-    stubBoy.withArgs('SUM', 100, 20).returns(120);
-    expect(checkSoy.calledOnce).to.be.true;
-    expect(console.log('The total is: 120')).to.be.all;
-    checkSoy.restore();
-    stubBoy.restore();
-  });
+    it('should call the Utils.calculateNumber() method', () => {
+        const spy = sinon.spy(console, 'log');
+        const stub = sinon.stub(Utils, 'calculateNumber');
+        stub.withArgs('SUM', 1, 9).returns(10);
+        sendPaymentRequestToApi(1, 9);
+        expect(stub.calledOnceWithExactly('SUM', 1, 9)).to.be.true;
+        expect(spy.calledOnceWithExactly('The total is: 10')).to.be.true;
+        spy.restore();
+        stub.restore();
+    });
 });
